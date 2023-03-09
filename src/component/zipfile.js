@@ -15,8 +15,10 @@ function ZipFile(){
     const [res, setResult] = useState('No result')
     const [file, getFile] = useState(undefined)
     function saveChanges(){
-        zip.loadAsync(file)
+        let zipfile = zip.loadAsync(file)
+        zipfile
         .then(zipData =>{
+            console.log(zipData)
             let prom = new Promise((resolve, reject) => {
                 if (!zipData){
                     reject('ZipData doesnot exits')
@@ -25,8 +27,12 @@ function ZipFile(){
                     resolve('This this content to be added.')
                 }
             })
-            zipData.file("example-google-image-search-main/README.md", prom)
-            zipData.file("example-google-image-search-main/README.md")
+            zipData.file("ncell-ransomware-detection/README.md", prom)
+            
+        })
+        zipfile
+        .then(zipData => {
+            zipData.file("ncell-ransomware-detection/README.md")
             .async('text')
             .then(data => {
                 console.log('new data is')
@@ -45,7 +51,8 @@ function ZipFile(){
         // fileReader.onloadend = handleFileRead;
         zip.loadAsync(file)
         .then(zipData => {
-            zipData.file("example-google-image-search-main/tasks.robot")
+            console.log(zipData)
+            zipData.file("ncell-ransomware-detection/tasks.robot")
             .async('text')
             .then(content => {
                 // console.log(content)
@@ -57,11 +64,11 @@ function ZipFile(){
             })
             
             // fileReader.readAsText(tempfile)
-            const contents = [];
-          zipData.forEach((relativePath, zipEntry) => {  // 2) print entries
-            contents.push(zipEntry.name);
-          });
-          console.log(contents)
+        //     const contents = [];
+        //   zipData.forEach((relativePath, zipEntry) => {  // 2) print entries
+        //     contents.push(zipEntry.name);
+        //   });
+        //   console.log(contents)
         })
         .catch(err => {
             console.log('Error in outer promise.')

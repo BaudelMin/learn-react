@@ -3,14 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@monaco-editor/react": "^4.4.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "buffer": "^6.0.3",
     "file-saver": "^2.0.5",
     "formik": "^2.2.9",
     "jszip": "^3.10.1",
     "latest-version": "^7.0.0",
     "medium-editor": "^5.23.3",
+    "mini-css-extract-plugin": "^2.7.2",
+    "monaco-editor-webpack-plugin": "^7.0.1",
     "nvm": "^0.0.4",
     "parser": "^0.1.4",
     "react": "^18.2.0",
@@ -20,13 +24,15 @@
     "react-scripts": "5.0.1",
     "react-textarea-autosize": "^8.4.0",
     "react-textarea-code-editor-2": "^1.4.17",
+    "react-video-stream": "^1.0.1",
+    "stream": "^0.0.2",
     "tokenizer": "^1.1.2",
     "web-vitals": "^2.1.4",
     "zip": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node ../node_modules/webpack/bin/webpack.js --progress",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -49,6 +55,7 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "video.js": "^8.0.4"
   }
 }
